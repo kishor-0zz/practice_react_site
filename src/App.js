@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Router, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Head from './Component/Head/Head';
+import PageNotFound from './Component/Head/PageNotFound/PageNotFound';
+import Navbar from './Component/Head/NavBar/Navbar';
+import Topbar from './Component/Head/NavBar/Navbar';
+import Services from './Component/Head/Services/Services';
+import Appointment from './Component/Head/Appointment/Appointment';
+import 'react-day-picker/dist/style.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Topbar></Topbar>
+      <Routes>
+        <Route path="/" element={<Head></Head>} ></Route>
+        <Route path="/services" element={<Services></Services>} ></Route>
+        <Route path="/appointment" element={<Appointment></Appointment>} ></Route>
+        <Route path="*" element={<PageNotFound></PageNotFound>} ></Route>
+      </Routes>
     </div>
   );
 }
